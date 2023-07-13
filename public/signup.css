@@ -1,0 +1,183 @@
+/* store sign up.css */
+
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* Set body background color */
+body {
+  background-image: url('assert/usersignup.gif');
+background-color: black;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Main container styles */
+.container {
+  width:100%;
+  max-width:700px;
+  padding:25px 30px;
+  border-radius:25px;
+  background: transparency;
+  backdrop-filter: blur(5px);
+  border: 2px solid rgba(0, 0, 0, 0.381);
+  height:610px;
+}
+
+
+
+/* Container styles */
+.main-container {
+ 
+  border-radius: 10px;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container form .card-details{
+  margin-top: 25px;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+}
+
+form .card-details .input{
+  width: calc(100% / 2 - 20px);
+  margin-bottom: 15px; 
+}
+
+.card-details .input .label{
+  display:block;
+  margin-bottom: 5px;
+}
+
+
+
+
+
+/* Upper section styles */
+.upper {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Heading styles */
+h1 {
+  color: #0c0000;
+  font-size: 24px;
+  margin-top: 30px;
+  font-weight: bold;
+}
+
+/* Input container styles */
+input {
+  margin-bottom: 20px;
+  background: transparent;
+  border: none;
+  font-size:20px;
+  outline: none;
+  backdrop-filter: blur(5px );
+
+}
+
+/* Label styles */
+.label {
+  color: #010000;
+  font-size: 18px;
+  font-weight: bold;
+  position: relative;
+  
+}
+
+
+.hr{
+  background-color:#010000;
+}
+
+
+/* Input field styles */
+.input-field {
+  width: 100%;
+  border-bottom: 2px solid rgb(0, 0, 0);
+  padding: 10px;
+  color: rgb(5, 31, 54);
+}
+
+/* Error message styles */
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* Button styles */
+.bttn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Signup button styles */
+.signup-btn {
+  background-color: #0f3193;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+.signup-btn:hover {
+  background-color: #063d8d;
+}
+
+/* Signup link styles */
+.signup-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.signup-link a {
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+/* Back button styles */
+.bck {
+  background-color: #ffffff;
+  color: #52294f;
+  border: 1px solid #52294f;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.bck:hover {
+  background-color: #52294f;
+  color: #ffffff;
+}
+
+/* Material Icons styles */
+.material-icons {
+  vertical-align: middle;
+}

@@ -1,0 +1,109 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+  list-style: none;
+  text-decoration: none;
+}
+*::selection{
+  background: var(--main-color);
+  color: #fff;
+}
+section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  background: green;
+  background-image: url(assert/usignup.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.lower-box{
+  position: relative;
+  width: 400px;
+  height: 450px;
+  background: transparent;
+  border: 2px solid rgba(255,255,255,0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: animate 3s ease-out;
+}
+@keyframes animate {
+  0%{
+      transform: translateY(-50px);
+      opacity: 0;
+  }
+  100%{
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+h2{
+  font-size: 2em;
+  color: #ffffffea;
+  text-align: center;
+}
+.input-box{
+  position: relative;
+  margin: 30px 0;
+  width: 310px;
+  border-bottom: 2px solid #ffffffea;
+}
+.input-box label{
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  color: #ffffffea;
+  font-size: 1em; 
+  pointer-events: none;
+  transition: .5s;
+}
+input:focus ~ label,
+input:valid ~ label{
+  top: -5px;
+}
+.input-box input{
+  width: 100%; 
+  height: 50px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  padding: 0 35px 0 5px;
+  color: rgba(0, 0, 0, 0.747);
+}
+.input-box ion-icon{
+  position: absolute;
+  right: 8px;
+  color: rgba(0, 0, 0, 0.747);
+  font-size: 1.2em;
+  top: 20px;
+}
+.forget{
+  margin: -15px 0 15px;
+  font-size: .9em;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+}
+button{
+  width: 100%;
+  height: 40px;
+  border-radius: 40px;
+  background: #ffffffea;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+}

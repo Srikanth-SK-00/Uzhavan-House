@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <title>User Login</title>
+</head>
+<body>
+ 
+<section>
+  <div class="container">
+    <div class="lower-box">
+     <div class="form-value"> 
+        <form action="/login" method="POST">
+          <h2>User Login</h2>
+          <div class="input-box">
+            <ion-icon name="mail-outline"></ion-icon>
+            <input type="text" name="email" id="mobilenumber" required>
+            <label for="">Email</label>
+          </div>
+
+          <div class="input-box">
+            <ion-icon name="lock-closed-outline"></ion-icon>
+            <input name="password" type="password" id="password" required>
+            <label for="">Password</label>
+            <span class="toggle-password" id="password-icon" onclick="togglePasswordVisibility()">
+            </span>
+          </div>
+          <div class="forget">
+            <a href="/forget"><span>Forgot Password</span></a>
+          </div>
+          <button>Login</button>
+       
+          <div class="signup-link">
+            <br>
+            <p><span style="color:#0f3193">Do you have an account?</span> <a href="/signup"><span style="color:#52294f;font-weight:800">Sign Up</span></a></p>
+          </div>
+        </form>
+     </div> 
+    </div>  
+  </div>
+</section>
+ 
+  <script src="login.js"></script>
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

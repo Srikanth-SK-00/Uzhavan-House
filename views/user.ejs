@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>UZHAVAN HOUSE</title>
+    <style>
+      /* Add your CSS styles here */
+      body {
+        background-color:#232020;
+;
+        font-family: Arial, sans-serif;
+      }
+
+      .profile-section h3,
+      .profile-section p {
+        margin: 5px;
+        text-align: center;
+      }
+
+      .filter-section {
+        text-align: center;
+        margin-top: 20px;
+      }
+      /* Dropdown Styling */
+      .select-wrapper {
+        margin-top: 6px;
+        position: relative;
+        display: inline-block;
+      }
+
+      .select-wrapper::after {
+
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        pointer-events: none;
+      }
+
+      .select-wrapper select {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 200px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: azure
+      }
+
+      /* Input Styling */
+      #pincode-select {
+        width: 200px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+    
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .fade-in {
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      .product-list {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+
+      .product-box {
+        display: inline-block;
+        width: 200px;
+        height: 250px;
+        border: transparent;
+        padding: 10px;
+        margin: 10px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow:none;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        animation-name: fadeIn;
+        animation-duration: 0.5s;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: forwards;
+      }
+
+      .product-image img {
+        width: 200px;
+        height: 200px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .product-image:hover img {
+        transform: scale(0.8);
+      }
+      .product-name {
+        font-weight: bold;
+        margin-left: 50px;
+        margin-bottom: 5px;
+        font-size: 16px;
+        color: #333;
+      }
+
+      .product-price {
+        margin-left: 60px;
+        color: #888;
+        font-size: 14px;
+      }
+      .header {
+        background-color: #f5f5f5;
+        padding: 20px;
+        text-align: center;
+      }
+
+      nav {
+        background: #046504cd;
+        height: 80px;
+        width: 100%;
+        
+      }
+
+      label.logo {
+        color: white;
+        font-size: 35px;
+        line-height: 80px;
+        padding: 0 100px;
+        font-weight: bold;
+      }
+
+      nav ul {
+        float: right;
+        margin-right: 20px;
+        cursor: pointer;
+      }
+
+      nav ul li {
+        display: inline-block;
+        line-height: 80px;
+        margin: 0 15px;
+      }
+
+      nav ul li a {
+        color: white;
+        font-size: 17px;
+        text-transform: uppercase;
+      }
+      h3 {
+        color: white;
+        margin-right: 40px;
+      }
+      .all {
+        height: 160px;
+        text-align: center;
+        background-color:#45454572
+      }
+      .filter {
+        padding-top: 30px;
+      }
+      .search-bar {
+        margin-top: 25px;
+        width: 100%;
+        max-width: 500px;
+        background-color: azure;
+        display: flex;
+        align-items: center;
+        border-radius: 60px;
+        max-height: 40px;
+      }
+      .search-bar input {
+        background: transparent;
+        flex: 1;
+        border: 0;
+        outline: none;
+        padding: 24px 20px;
+        font-size: 20px;
+        color: #333;
+      }
+      .sea {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .search-bar button img {
+        width: 20px;
+      }
+      .search-bar button {
+        border: 0;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        background-color: #58629b;
+        cursor: pointer;
+        padding: 5px;
+        margin-right: 5px;
+      }
+      .pinbox
+      {
+        position: relative;
+        width: 250px;
+      }
+      .pinbox input{
+        width: 100%;
+        padding: 10px;
+        border: 1px solid rgba(255, 255, 255,0.25);
+        background: azure;
+        border-radius: 5px;
+        outline: none;
+        color: #020202;
+        font-size: 1em;
+      }
+      .a {
+        font-size: larger;
+  
+        color: rgb(255, 242, 0);
+        font-size: 35px;
+        line-height: 80px;
+
+        font-weight: bold;
+      }
+   
+  
+    
+    </style>
+  </head>
+  <body>
+    <div class="body">
+      <nav>
+        <label class="logo"><span class="a">Uzhavan</span> H<span class="o">o</span>use</label>
+        <ul>
+          <a href="/userprofileupdate/<%= email%>"><h3>Profile</h3></a>
+        </ul>
+      </nav>
+      <form action="/filter/<%= email%>" method="post">
+        <div class="all">
+          <div class="filter">
+            <div class="select-wrapper">
+              <div class="pinbox">
+                <input
+                  type="number"
+                  required
+                  id="pincode-select"
+                  name="pincode"
+                  maxlength="6"
+                  placeholder="pincode"
+                  minlength="6"
+                  value="<%= pincode %>"
+                />
+          
+              </div>
+            </div>
+
+            <div class="select-wrapper">
+              <select id="productType" name="productType">
+                <option value="" disabled selected>Product Type</option>
+                <option value="Diary products">Diary products</option>
+                <option value="Grains">Grains</option>
+                <option value="Fruits">Fruits</option>
+                <option value="Vegetables">Vegetables</option>
+                <option value="Egg">Egg</option>
+                <option value="Honey">Honey</option>
+                <option value="Dry Fruits">Dry Fruits</option>
+                <option value="Oilseeds">Oilseeds</option>
+                <option value="Wood products">Wood products</option>
+                <option value="Timber">Timber</option>
+                <option value="Fiber and Textiles">Fiber and Textiles</option>
+                <option value="Flowers">Flowers</option>
+                <option value="Herbicides">Herbicides</option>
+                <option value="frozen products">frozen products</option>
+                <option value="Fertilizers">Fertilizers</option>
+                <option value="Cattle feed">Cattle feed</option>
+              </select>
+            </div>
+          </div>
+          <div class="sea">
+            <div class="search-bar">
+              <input type="text" placeholder="search.." name="product" />
+              <button type="submit" class="search-btn" value="Search">
+                <img src="/assert/search.png" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <% if(s){%>
+    <div class="product-list">
+      <form method="post" action="userlist/<%= email%>">
+        <% for (let i = 0; i < products.length; i++) { %> <% const product =
+        products[i]; %> <% const image = images.find(img => img.productid ===
+        product.productid); %> <% if (image) { %>
+        <a href="/userproduct/<%= product.productid %>">
+          <div class="product-box">
+            <div class="product-image">
+              <img src="/uploads/<%= image.imagepath %>" />
+            </div>
+            <div class="product-name"><%= product.productName %></div>
+            <div class="product-price">₹<%= product.sellingPrice %></div>
+          </div>
+        </a>
+        <% } %> <% } %>
+      </form>
+    </div>
+    <% } else {%>
+    <h3>No result found</h3>
+    <% } %>
+  </body>
+</html>

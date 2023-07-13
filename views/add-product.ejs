@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Product</title>
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+      margin-top: 50px;
+    }
+
+    form {
+      margin: 0 auto;
+      max-width: 400px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 4px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      margin-bottom: 10px;
+      color: #333;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="date"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+      resize: vertical;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+    }
+
+    input[type="file"] {
+      margin-bottom: 20px;
+    }
+
+    .preview-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .preview-item img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      margin-right: 10px;
+    }
+
+    .preview-item p {
+      margin: 0;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>Add Product</h1>
+  <form method="POST" action="/products/add/<%= id%>/<%= email %>" enctype="multipart/form-data">
+    <label for="productName">Product Name:</label>
+    <input type="text" id="productName" name="productName" required><br><br>
+    <label for="productType">Product Type:</label>
+    <select  required id="productType" name="productType">
+      <option value="" disabled selected>Select an option</option>
+      <option value="Diary products">Diary products</option>
+      <option value="Grains">Grains</option>
+      <option value="Fruits">Fruits</option>
+      <option value="Vegetables">Vegetables</option>
+      <option value="Egg">Egg</option>
+      <option value="Honey">Honey</option>
+      <option value="Dry Fruits">Dry Fruits</option>
+      <option value="Oilseeds">Oilseeds</option>
+      <option value="Wood products">Wood products</option>
+      <option value="Timber">Timber</option>
+      <option value="Fiber and Textiles">Fiber and Textiles</option>
+      <option value="Flowers">Flowers</option>
+      <option value="Herbicides">Herbicides</option>
+      <option value="frozen products">frozen products</option>
+      <option value="Fertilizers">Fertilizers</option>
+      <option value="Cattle feed">Cattle feed</option>
+  </select>
+   <br><br>
+   <label for="productDescription">Product Description:</label>
+
+   <textarea id="productDescription"  name="productDescription" required minlength="82"></textarea><br><br>
+    <label for="mrp">MRP:</label>
+    <input type="number" id="mrp" name="mrp" required><br><br>
+    <label for="sellingPrice">Selling Price:</label>
+    <input type="number" id="sellingPrice" name="sellingPrice" required><br><br>
+    <label for="expiryDays">Expiry Date:</label>
+    <input type="date" id="expiryDays" name="expiryDays" required><br><br>
+
+    <label for="photos">Photos:</label>
+    <input type="file" id="photos" name="photos" accept="image/*" multiple required><br>
+    <div id="preview"></div><br>
+
+    <input type="submit" value="Add Product">
+  </form>
+  <script>
+    // Get the file input element
+    document.getElementById('photos').addEventListener('change', function(e) {
+    var files = e.target.files;
+    var previewContainer = document.getElementById('preview');
+    previewContainer.innerHTML = '';
+
+    if (files.length > 4) {
+      alert('Please select up to four images.');
+      this.value = '';
+      return;
+    }
+  });
+    const fileInput = document.getElementById('photos');
+    
+    // Add an event listener to handle file selection
+    fileInput.addEventListener('change', handleFileSelection);
+    
+    // Function to handle file selection
+    function handleFileSelection(event) {
+      const previewContainer = document.getElementById('preview');
+      previewContainer.innerHTML = ''; // Clear the preview container
+    
+      const files = event.target.files;
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+    
+        const previewItem = document.createElement('div');
+        previewItem.className = 'preview-item';
+    
+        const previewImage = document.createElement('img');
+        previewImage.src = URL.createObjectURL(file);
+    
+        const fileName = document.createElement('p');
+        fileName.textContent = file.name;
+    
+        const removeButton = document.createElement('button');
+        removeButton.textContent = 'Remove';
+        removeButton.addEventListener('click', () => {
+          // Remove the file and the preview item
+          fileInput.value = '';
+          URL.revokeObjectURL(previewImage.src);
+          previewItem.remove();
+        });
+    
+        previewItem.appendChild(previewImage);
+        previewItem.appendChild(fileName);
+        previewItem.appendChild(removeButton);
+    
+        previewContainer.appendChild(previewItem);
+      }
+    }
+  </script>
+</body>
+</html>

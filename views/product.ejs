@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Details</title>
+  <style>
+    /* Add your CSS styles here */
+    .product-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      max-width: 800px;
+      width: 100%;
+      margin: 50px;
+      
+    }
+    .product-item {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+    .product-image-container {
+      margin-top: 50px;
+      position: relative;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html,
+    body {
+      height: 100%;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #232020;
+      font-family: Arial, sans-serif;
+    }
+    .product-image {
+      width: 150px;
+      height: 150px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      margin-right: 20px;
+      float: left;
+      transition: transform 0.3s ease;
+      margin-bottom: 50px;
+    }
+    .product-image:hover {
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+    
+    /* Fullscreen Image */
+    .fullscreen-image-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s linear 0.25s, opacity 0.25s;
+    }
+    .fullscreen-image-container.show {
+      visibility: visible;
+      opacity: 1;
+      transition-delay: 0s;
+    }
+    .fullscreen-image {
+      max-width: 90%;
+      max-height: 90%;
+    }
+    .product-label {
+      margin-left:170px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      width: 150px;
+    }
+    .product-value {
+margin-top:-35px;
+margin-bottom: 15px;
+      margin-left: 400px; /* Adjust the margin as needed */
+    }
+    .des
+    {
+      margin-right:100px;
+ 
+    }
+    .as
+    {
+      margin-top:40px;
+      margin-bottom:-60px;
+    }
+    .p
+    {
+      margin-top:40px
+    }
+  </style>
+</head>
+<body>
+  <div class="product-container">
+    <div class="product-item">
+      <% image.forEach((ss) => { %>
+        <div class="product-image-container">
+          <div class="product-image" style="background-image: url('/uploads/<%= ss.imagepath %>');" onclick="showFullscreenImage(this)"></div>
+        </div>
+      <% }) %>
+      <div class="product-details">
+        <div class="product-label">Product Name:</div>
+        <div class="product-value">
+          <span><%= product.productName %></span>
+        </div>
+        <div class="product-label as">Product Description:</div>
+        <div class="product-value des">
+          <span><%= product.productDescription %></span>
+        </div>
+        <div class="product-label p">Price:</div>
+        <div class="product-value">
+          <span>MRP: ₹<%= product.mrp %>, Selling Price: ₹<%= product.sellingPrice %></span>
+        </div>
+        <div class="product-label">Mobile Number:</div>
+        <div class="product-value">
+          <span><%= phno %></span>
+        </div>
+        <div class="product-label">Address:</div>
+        <div class="product-value">
+          <span><%= address %></span>
+        </div>
+        <div class="product-label">Expiry Date:</div>
+        <div class="product-value">
+          <span><%= product.expiryDays %></span>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <div class="fullscreen-image-container" onclick="hideFullscreenImage()">
+    <img class="fullscreen-image" src="" alt="Fullscreen Image">
+  </div>
+
+  <script>
+    function showFullscreenImage(element) {
+      const imageUrl = element.style.backgroundImage.slice(4, -1).replace(/"/g, "");
+      const fullscreenImage = document.querySelector(".fullscreen-image");
+      fullscreenImage.src = imageUrl;
+      document.querySelector(".fullscreen-image-container").classList.add("show");
+    }
+
+    function hideFullscreenImage() {
+      document.querySelector(".fullscreen-image-container").classList.remove("show");
+    }
+  </script>
+</body>
+</html>

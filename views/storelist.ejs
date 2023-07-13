@@ -1,0 +1,132 @@
+<!-- storelist.ejs -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Store List</title>
+  <style>
+    /* Global Styles */
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+    }
+.product-list {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+
+      /* Product Box Styles */
+      .product-box {
+        display: inline-block;
+        width: 200px;
+        height: 250px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 10px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        animation-name: fadeIn;
+        animation-duration: 0.5s;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: forwards;
+      }
+
+      /*.product-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }*/
+
+      .product-image img{
+        width: 200px;
+        height: 200px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        transition: transform 0.3s ease-in-out;
+      }
+      
+.product-image:hover img{
+  transform: scale(0.8);
+}
+      .product-name {
+        font-weight: bold;
+        margin-left:50px;
+        margin-bottom: 5px;
+        font-size: 16px;
+        color: #333;
+      }
+ nav {
+            background: rgb(0, 0, 0);
+            height: 80px;
+            width: 100%;
+        }
+
+        label.logo {
+            color: #00ff37;
+            font-size: 35px;
+            line-height: 80px;
+            padding: 0 100px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            float: right;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+
+        nav ul li {
+            display: inline-block;
+            line-height: 80px;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            font-size: 17px;
+            text-transform: uppercase;
+        }
+      .product-price {
+        margin-left:60px;
+        color: #888;
+        font-size: 14px;
+      }
+
+    /* Animation Keyframes */
+    
+  </style>
+</head>
+<body>
+  <div class="body">
+    <nav>
+        <label class="logo">Uzhavan House</label>
+        <ul>
+           
+        </ul>
+    </nav>
+</div>
+  <div class="product-list">
+
+      <% for (let i = 0; i < products.length; i++) { %> <% const product =
+      products[i]; %> <% const image = images.find(img => img.productid ===
+      product.productid); %> <% if (image) { %>
+      <a href="/editproduct/<%= product.productid %>">
+        <div class="product-box">
+          <div
+            class="product-image"><img src="/uploads/<%= image.imagepath %>"></div>
+          <div class="product-name"><%= product.productName %></div>
+          <div class="product-price">₹<%= product.sellingPrice %></div>
+        </div>
+      </a>
+    <% } %>
+  <% } %>
+</body>
+</html>

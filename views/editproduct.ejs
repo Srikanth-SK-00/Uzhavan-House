@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Product</title>
+  <style>
+
+
+    /* Add your fullscreen styling here */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+    }
+
+    .fullscreen-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .product-edit-container {
+      width: 80%;
+      max-width: 800px;
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-image-container {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 20px;
+      margin-right: 20px;
+    }
+
+    .product-image {
+      width: 150px;
+      height: 150px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-radius: 10px;
+    }
+
+    .remove-button {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background-color: #ff0000;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      padding: 5px;
+      cursor: pointer;
+    }
+
+    .product-details {
+      margin-bottom: 20px;
+    }
+
+    .form-field {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .form-field label {
+      width: 100px;
+      font-weight: bold;
+    }
+
+    .form-field input {
+      flex-grow: 1;
+      margin-left: 10px;
+      padding: 5px;
+    }
+
+    .submit-button {
+      text-align: center;
+    }
+
+    .submit-button button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .aa
+    {
+      width:100%;
+      margin-left:25px;
+    
+    }
+  </style>
+</head>
+<body>
+    <div class="fullscreen-container">
+        <div class="product-edit-container">
+          <h1>Edit Product</h1>
+          <form action="/editproduct/<%= product.productid %>" method="post">
+          <% for (let i = 0; i < images.length; i++) { %>
+            <% const image = images[i]; %>
+            <div class="product-image-container">
+              <img class="product-image" src="/uploads/<%= image.imagepath %>" alt="Product Image">
+              <!-- <button class="remove-button" onclick="removeImage()">X</button> -->
+            </div>
+          <% } %>
+        <div class="form-field ">
+          <label for="productName">Product Name:</label>
+          <input type="text"required name="productName" id="productName" value="<%= product.productName %>">
+        </div>
+        <div class="form-field ">
+          <label for="productType">Product Type:</label>
+       
+    <select class="aa" required id="productType" name="productType">
+      <option value="<%= product.productType %>"  selected><%= product.productType %></option>
+      <option value="Diary products">Diary products</option>
+      <option value="Grains">Grains</option>
+      <option value="Fruits">Fruits</option>
+      <option value="Vegetables">Vegetables</option>
+      <option value="Egg">Egg</option>
+      <option value="Honey">Honey</option>
+      <option value="Dry Fruits">Dry Fruits</option>
+      <option value="Oilseeds">Oilseeds</option>
+      <option value="Wood products">Wood products</option>
+      <option value="Timber">Timber</option>
+      <option value="Fiber and Textiles">Fiber and Textiles</option>
+      <option value="Flowers">Flowers</option>
+      <option value="Herbicides">Herbicides</option>
+      <option value="frozen products">frozen products</option>
+      <option value="Fertilizers">Fertilizers</option>
+      <option value="Cattle feed">Cattle feed</option>
+  </select>
+        </div>
+        <div class="form-field">
+            <label for="productDescription">Product Description:</label>
+            <input type="text" required name="productDescription" id="productDescription" required minlength="82" value="<%= product.productDescription %>">
+       
+          </div>
+          <div class="form-field">
+            <label for="mrp">MRP:</label>
+            <input type="number"required name="mrp" id="mrp" value="<%= product.mrp %>">
+          </div>
+          <div class="form-field">
+            <label for="sellingPrice">selling Price:</label>
+            <input type="number" required name="sellingPrice" id="sellingPrice" value="<%= product.sellingPrice %>">
+          </div>
+          <div class="form-field">
+            <label for="expiryDays">Expiry Date:</label>
+            <input type="text" required name="expiryDays" id="expiryDaysInput" value="<%= product.expiryDays %>">
+          </div>
+        <!-- Add more form fields for other product details -->
+      </div>
+    </div>
+      <div class="submit-button">
+        <button type="submit">Update Product</button>
+      </div>
+    </form>
+    </div>
+  </div>
+
+  <script>
+    const expiryDaysInput = document.getElementById('expiryDaysInput');
+    expiryDaysInput.addEventListener('input', function() {
+      const inputValue = expiryDaysInput.value;
+      const dateRegex = /^\d{4}\/\d{2}\/\d{2}$/; // Matches the format "YYYY/MM/DD"
+  
+      if (!dateRegex.test(inputValue)) {
+        expiryDaysInput.setCustomValidity('Please enter the date in the format YYYY/MM/DD.');
+      } else {
+        expiryDaysInput.setCustomValidity('');
+      }
+    });
+  </script>
+</body>
+</html>
