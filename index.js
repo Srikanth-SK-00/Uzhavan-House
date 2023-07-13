@@ -44,7 +44,7 @@ sqldb.connect((err) => {
 //server start  
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
-}).listen(3000,'0.0.0.0');
+}).listen(3000);
 //user signed up
 app.get("/signup", (req, res) => {
   res.sendFile(__dirname + "/signup.html");
