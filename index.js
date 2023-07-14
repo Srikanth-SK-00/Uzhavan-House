@@ -3,7 +3,7 @@ var express = require("express");
 const multer = require("multer");
 const fs = require("fs");
 const Fuse = require("fuse.js");
-var  jwt= require("jsonwebtoken");
+
 const nodemailer = require("nodemailer");
 const generateotp = require("otp-generator");
 const mysql = require("mysql2");
@@ -105,8 +105,7 @@ app.get("/userlogin", (req, res) => {
 app.post("/login", async (req, res) => {
   const Email = req.body.email;
   const password = req.body.password;
-  const token =jwt.sign({Email},'srikanth');
-  console.log(token);
+
   const query = "SELECT * FROM userdetails WHERE email = ?";
   sqldb.query(query, [Email], (error, results) => {
     if (error) {
@@ -127,7 +126,7 @@ app.post("/login", async (req, res) => {
           res.send(`
             <script>
             alert('Invalid username or password');
-            window.location.href = 'http://localhost:3000/userlogin';
+            window.location.href = '/userlogin';
             </script>
           `);
           console.log("Invalid username or password.");
@@ -137,7 +136,7 @@ app.post("/login", async (req, res) => {
       res.send(`
         <script>
         alert('Invalid username');
-        window.location.href = 'http://localhost:3000/userlogin';
+        window.location.href = '/userlogin';
         </script>
       `);
       console.log("Invalid username or password.");
@@ -170,7 +169,7 @@ app.post("/verify", async (req, res) => {
     res.send(
       `<script>
 alert('Invalid inputs');
-window.location.href = 'http://localhost:3000/forget';
+window.location.href = '/forget';
 </script>`
     );
     return;
@@ -189,7 +188,7 @@ window.location.href = 'http://localhost:3000/forget';
   res.send(
     `<script>
 alert('password updated');
-window.location.href = 'http://localhost:3000/userlogin';
+window.location.href = '/userlogin';
 </script>`
   );
 });
@@ -555,7 +554,7 @@ app.post("/storelogin", function (req, res) {
           res.send(`
             <script>
             alert('Invalid password');
-            window.location.href = 'http://localhost:3000/storelogin';
+            window.location.href = '/storelogin';
             </script>
           `);
           console.log("Invalid username or password.");
@@ -565,7 +564,7 @@ app.post("/storelogin", function (req, res) {
       res.send(`
         <script>
         alert('Invalid username');
-        window.location.href = 'http://localhost:3000/storelogin';
+        window.location.href = '/storelogin';
         </script>
       `);
       console.log("Invalid username or password.");
@@ -656,7 +655,7 @@ app.post("/storeverify", async (req, res) => {
     res.send(
       `<script>
 alert('Invalid inputs');
-window.location.href = 'http://localhost:3000/storeforget';
+window.location.href = '/storeforget';
 </script>`
     );
     return;
@@ -673,7 +672,7 @@ window.location.href = 'http://localhost:3000/storeforget';
         res.send(
           `<script>
         alert('password updated');
-        window.location.href = 'http://localhost:3000/storelogin';
+        window.location.href = '/storelogin';
         </script>`
         );
       });
@@ -885,18 +884,18 @@ window.location.href = 'http://localhost:3000/products/${storeid}/${storeid}';
   });
 });
 //other functions
-function ensuretoken(req,res,next) {
-  const b=req.header('authorization');
-  if(typeof b !=='undefined') {
-    const barear=b.split(" ");
-    const bt=barear[1];
-    req.token = b;
-    next();
-  }
-  else{
-    res.send(403)
-  }
-}
+// function ensuretoken(req,res,next) {
+//   const b=req.header('authorization');
+//   if(typeof b !=='undefined') {
+//     const barear=b.split(" ");
+//     const bt=barear[1];
+//     req.token = b;
+//     next();
+//   }
+//   else{
+//     res.send(403)
+//   }
+// }
 
 const userCredentials = {};
 function sendOTPByEmail(email, otp) {
