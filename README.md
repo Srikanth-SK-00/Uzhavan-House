@@ -10,9 +10,7 @@ Introducing Uzhavan House - Your One-Stop Agri E-commerce Destination!
 
 🔒 Uzhavan House is built using a powerful tech stack, ensuring a secure and reliable platform. Our top-notch encryption protects all user and seller passwords, while automatic removal of expired products guarantees you only see fresh offerings.
 
-🌈 But that's not all! Uzhavan House isn't just functional; it's a visual delight. We've added captivating animations to every page, making your browsing experience enjoyable and memorable.
-
-💪 Our team is composed of talented individuals who have contributed to the development of Uzhavan House. Srikanth K spearheaded the full backend code and also played a significant role in frontend development. Srimuthukumaran Venkatachalapathy and Shriram Senthil led the frontend team, ensuring a seamless and visually appealing user interface. Shivani Eswaramoorthi, our talented UI/UX designer, played a pivotal role in shaping the visual aesthetics and user experience. Yuvarani J provided invaluable support with image assets and assisted the support team. Together, we have created a platform that brings convenience, quality, and innovation to the agricultural e-commerce space.
+💪 Our exceptional leader, Srikanth K, is the brain behind Uzhavan House. As the team leader, he guides and oversees the entire project, playing a significant role in both backend development and the frontend implementation. With his expertise, Srikanth K ensures a seamless and high-performing platform. The frontend team, led by Srimuthukumaran Venkatachalapathy and Shriram Senthil, works closely with Srikanth K to create a visually appealing and user-friendly interface. Collaborating closely with the team, Shivani Eswaramoorthi, our skilled UI/UX designer, shapes the aesthetics and enhances the user experience. Yuvarani J provides invaluable support with image assets and plays a crucial role in assisting the support team. Together, this exceptional team has successfully created Uzhavan House, bringing convenience, quality, and innovation to agricultural e-commerce.
 
 Special thanks to Ananth Subramaniam for his motivation and guidance throughout the project.
 
@@ -20,4 +18,8 @@ We would also like to express our gratitude to Swetha P and Vasunthra Sree for t
 
 🌱 Uzhavan House is here to revolutionize your agricultural e-commerce experience. Join us today and unlock a world of convenience, quality, and innovation.
 
-👉 Visit us at:https://lnkd.in/ggYv8F7j
+👉 Visit us at: [Uzhavan House](https://lnkd.in/ggYv8F7j)
+
+Please share this announcement with your friends and family who may be interested in a convenient and innovative agricultural e-commerce platform like Uzhavan House. Together, let's empower farmers and customers with a seamless and efficient way to connect and fulfill their agricultural needs.
+
+#agriculture #ecommerce #UzhavanHouse #agriculturalneeds #convenience #quality #innovation
