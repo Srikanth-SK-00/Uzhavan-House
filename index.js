@@ -28,12 +28,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 //data base connection
-const sqldb = mysql.createConnection({
-  host: "b6ivaohhafgqibz5buq9-mysql.services.clever-cloud.com",
-  user: "uiz9m0cbl6vbgtjp",
-  password: "D1WMZKlTdav1Ty5xi8uR",
-  database: "b6ivaohhafgqibz5buq9",
-});
+const sqldb = mysql.createConnection('mysql://nbt8f99rri6es8c1i1e6:pscale_pw_W5ximtCYqjFh4Ui2pAW7pAMWmwXXHKM6PeXarPgaPwc@aws.connect.psdb.cloud/uzhavanhouse?ssl={"rejectUnauthorized":true}');
 sqldb.connect((err) => {
   if (err) {
     console.error(err);
