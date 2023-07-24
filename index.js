@@ -29,10 +29,10 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 //data base connection
 const sqldb = mysql.createConnection({
-  host: "b6ivaohhafgqibz5buq9-mysql.services.clever-cloud.com",
-  user: "uiz9m0cbl6vbgtjp",
-  password: "D1WMZKlTdav1Ty5xi8uR",
-  database: "b6ivaohhafgqibz5buq9",
+  host: "aws.connect.psdb.cloud",
+  user: "8qmxrbyjy8f63cgdyeh8",
+  password: "pscale_pw_E0vKrHMAwgot07IJSXciKmlYDgzWPgbIKgtJf3XV65d",
+  database: "uzhavanhouse",
 });
 sqldb.connect((err) => {
   if (err) {
