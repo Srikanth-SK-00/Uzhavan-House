@@ -28,12 +28,8 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 //data base connection
-const sqldb = mysql.createConnection({
-  host: "aws.connect.psdb.cloud",
-  user: "8qmxrbyjy8f63cgdyeh8",
-  password: "pscale_pw_E0vKrHMAwgot07IJSXciKmlYDgzWPgbIKgtJf3XV65d",
-  database: "uzhavanhouse",
-});
+const sqldb = mysql.createConnection('mysql://38byv1dslga7k5rw26uf:pscale_pw_vca28Dg3RzhCmbKrdXZxZbMIG55ejE0bPkbFIGIizUv@aws.connect.psdb.cloud/uzhavanhouse?ssl={"rejectUnauthorized":true}'
+);
 sqldb.connect((err) => {
   if (err) {
     console.error(err);
